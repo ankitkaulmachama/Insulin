@@ -44,13 +44,28 @@
     <script>
         function checkNumber() {
             const number = document.getElementById('numberInput').value;
+            var baseInsulinDose = 14
             let resultText;
-            if (number < 70) {
-                resultText = 'Skip';
-            } else if (number >= 71 && number <= 120) {
-                resultText = '18';
-            } else {
-                resultText = '20';
+            if(number == "" || number == null)
+            {
+                 resultText = 'Invalid Number';
+            }
+            else if (number < 75) {
+                resultText = 'Skip Dose';
+            } else if (number >= 75 && number <= 90) {
+                resultText = (baseInsulinDose/2) + ' Units';
+            } else if (number >= 90 && number <= 140) {
+                resultText = (baseInsulinDose) + ' Units';
+            }
+            else if (number >= 140 && number <= 180) {
+                resultText = (baseInsulinDose+1) + ' Units';
+            }
+            else if (number >= 180) {
+                resultText = (baseInsulinDose+2) + ' Units';
+            }
+            else if(number == "" || number == null)
+            {
+               resultText = 'Invalid Number';
             }
             document.getElementById('result').innerText = resultText;
         }
