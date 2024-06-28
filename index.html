@@ -57,7 +57,15 @@
         document.getElementById("datetime").innerHTML = datetime;
         function checkNumber() {
             const number = document.getElementById('numberInput').value;
-            var baseInsulinDose = 14
+            var baseInsulinDose = 0
+            if(datetime.includes("AM"))
+            {
+                baseInsulinDose = 10;
+            }
+            else if(datetime.includes("PM"))
+            {
+                baseInsulinDose = 12;
+            }
             let resultText;
             if(number == "" || number == null)
             {
