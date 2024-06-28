@@ -46,11 +46,13 @@
 <body>
     <h1>Insulin Calculator</h1>
     <div class="container">
+        <span>Date Time: </span><p id="datetime"></p>
         <input type="number" id="numberInput" placeholder="Enter Sugar Value">
         <button onclick="checkNumber()">Get Insulin Units!</button>
         <div id="result" class="result"></div>
     </div>
     <script>
+        document.getElementById("datetime").innerHTML = datetime;
         function checkNumber() {
             const number = document.getElementById('numberInput').value;
             var baseInsulinDose = 14
