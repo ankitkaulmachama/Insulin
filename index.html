@@ -46,7 +46,8 @@
 <body>
     <h1>Insulin Calculator</h1>
     <div class="container">
-        <div><span>Date Time: </span><span id="datetime"></span><div>
+        <div style="font-size: 24px;"><span>Date Time: </span><span id="datetime"></span><div>
+        <div style="font-size: 24px;"><span>Base Insuquick Dose: </span><span id="basedose"></span><div>
         <input type="number" id="numberInput" placeholder="Enter Sugar Value">
         <button onclick="checkNumber()">Get Insulin Units!</button>
         <div id="result" class="result"></div>
@@ -54,18 +55,20 @@
     <script>
         var now = new Date();
         var datetime = now.toLocaleString();
+        var baseInsulinDose = 0
+        if(datetime.includes("AM"))
+        {
+            baseInsulinDose = 10;
+        }
+        else if(datetime.includes("PM"))
+        {
+            baseInsulinDose = 12;
+        }
+       
         document.getElementById("datetime").innerHTML = datetime;
+        document.getElementById("basedose").innerHTML = baseInsulinDose;
         function checkNumber() {
             const number = document.getElementById('numberInput').value;
-            var baseInsulinDose = 0
-            if(datetime.includes("AM"))
-            {
-                baseInsulinDose = 10;
-            }
-            else if(datetime.includes("PM"))
-            {
-                baseInsulinDose = 12;
-            }
             let resultText;
             if(number == "" || number == null)
             {
