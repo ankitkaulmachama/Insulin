@@ -53,20 +53,23 @@
         <div id="result" class="result"></div>
     </div>
     <script>
-        var now = new Date();
-        var datetime = now.toLocaleString();
-        var baseInsulinDose = 0
-        if(datetime.includes("AM"))
-        {
-            baseInsulinDose = 10;
-        }
-        else if(datetime.includes("PM"))
-        {
-            baseInsulinDose = 12;
-        }
+        document.addEventListener("DOMContentLoaded", () => {
+            var now = new Date();
+            var datetime = now.toLocaleString();
+            var baseInsulinDose = 0
+            if(datetime.includes("AM"))
+            {
+                baseInsulinDose = 10;
+            }
+            else if(datetime.includes("PM"))
+            {
+                baseInsulinDose = 12;
+            }
        
-        document.getElementById("datetime").innerHTML = datetime;
-        document.getElementById("basedose").innerHTML = baseInsulinDose;
+            document.getElementById("datetime").innerHTML = datetime;
+            document.getElementById("basedose").innerHTML = baseInsulinDose;
+        });
+
         function checkNumber() {
             const number = document.getElementById('numberInput').value;
             let resultText;
