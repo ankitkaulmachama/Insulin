@@ -56,11 +56,11 @@
         var now = new Date();
         var datetime = now.toLocaleString();
         var baseInsulinDose = 0
-        if((datetime.includes("AM")) || (datetime.getHours() < 12))
+        if((datetime.includes("AM")) || (now.getHours() < 12))
         {
             baseInsulinDose = 10;
         }
-        else if((datetime.includes("PM")) || (datetime.getHours() >= 12))
+        else if((datetime.includes("PM")) || (now.getHours() >= 12))
         {
             baseInsulinDose = 12;
         }
